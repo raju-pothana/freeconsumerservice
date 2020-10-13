@@ -1,0 +1,136 @@
+.bg-theme{
+    background: #0f6dbf !important;
+  }
+  .gray-theme{
+      background-color: #E8EEFA !important;
+  }
+  .custom-navbar{
+    
+  }
+  .custom-navbar li{
+    margin: 4px 8px;
+    color:#484848;
+  }
+  .custom-navbar li a{
+    color:#ffffff;
+    text-transform: capitalize;
+  }
+  .custom-footer{
+    background-color: #6f6e72;
+    padding: 12px 24px;
+  }
+  .custom-footer p{
+    color:#ffffff;
+    margin-bottom: 0px;
+  }
+  .content-body{
+    height: calc(100vh - 102px);
+  }
+
+
+  .bannerblock h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    color: #f6ff52 !important;
+    text-align: center;
+}
+  
+.home-icon-box{
+    display:flex;
+    flex-wrap: wrap;
+}
+.icon-block{
+    width: 120px;
+    margin:8px;
+    padding: 8px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 4px;
+    border:1px solid #efefef !important;
+    cursor:pointer;
+}
+.icon-block:hover{
+    background-color: #094578;
+}
+.icon-block h3{     
+    font-size: 12px;
+    color: #fff !important;
+    text-align: center;
+    font-weight: bold;
+     margin:15px 0px 0px;
+   }
+
+   .title_with_descr{
+    font-size: 3.429em;
+    line-height: 1.3em;
+    font-weight: 400;
+    margin-top: 1.04em;
+    margin-bottom: 0.17em;
+    color: #3f3e43;
+   }
+   .sec-bg-image-1{
+       background-size: cover;
+       background-position:top left;
+    background-image: url('http://freeconsumerservice.com/wp-content/uploads/2016/10/bg_2.jpg') !important;
+}
+.submit-btn{
+    font-size: 14px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #fff;
+    border-color: #5472d2;
+    background-color: #5472d2;
+    border-radius: 5px;
+}
+.submit-btn:hover{
+    color:#ffffff !important;
+    text-decoration: none;
+}
+/* login */
+html,body { 
+	height: 100%; 
+}
+
+.global-container{
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f5f5f5;
+}
+
+form{
+	padding-top: 10px;
+	font-size: 14px;
+	margin-top: 30px;
+}
+
+.card-title{ font-weight:300; }
+
+.btn{
+	font-size: 14px;
+	margin-top:20px;
+}
+
+
+.login-form{ 
+	width:330px;
+	margin:20px;
+}
+
+.sign-up{
+	text-align:center;
+	padding:20px 0 0;
+}
+
+.alert{
+	margin-bottom:-30px;
+	font-size: 13px;
+	margin-top:20px;
+}
