@@ -20,9 +20,11 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->model('Common_model', 'common');
+		$data['companies'] = $this->common->get_conpanies();
 		$this->load->helper('url');
 		$this->load->view('header');
-		$this->load->view('home-content');
+		$this->load->view('home-content', $data);
 		$this->load->view('footer');
 	}
 }

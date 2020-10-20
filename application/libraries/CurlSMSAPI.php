@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class CurlSMSAPI {
     public function curl($mbl, $otp) {
-    // $apiKey = urlencode('mFQVxQtfZls-pRKrLajfJ5onZFPYV17Gy94tJrb7UC');
+    $apiKey = urlencode('mFQVxQtfZls-pRKrLajfJ5onZFPYV17Gy94tJrb7UC');
     $numbers = array($mbl);
     $sender = urlencode('TXTLCL');
     $sms = rawurlencode($message .$otp);
