@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2020 at 03:55 PM
+-- Generation Time: Oct 26, 2020 at 11:44 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -48,7 +48,8 @@ CREATE TABLE `advcate_images` (
 --
 
 INSERT INTO `advcate_images` (`id`, `advacate_id`, `resumefiles`, `eqcertificate`, `encertificate`, `identitycard`, `practcertificateissued`, `practconcern`, `practcertificateissuedwhere`, `passportphoto`, `affidavit`, `created_date`) VALUES
-(1, 1, './uploads/advacate/1/771603361863.jpeg', './uploads/advacate/1/761603361863.jpeg', '', NULL, './uploads/advacate/1/521603361863.jpeg', NULL, './uploads/advacate/1/911603361863.jpeg', NULL, './uploads/advacate/1/971603361863.jpeg', '2020-10-22 12:17:43');
+(1, 1, './uploads/advacate/1/771603361863.jpeg', './uploads/advacate/1/761603361863.jpeg', '', NULL, './uploads/advacate/1/521603361863.jpeg', NULL, './uploads/advacate/1/911603361863.jpeg', NULL, './uploads/advacate/1/971603361863.jpeg', '2020-10-22 12:17:43'),
+(2, 2, 'uploads/advacate/2811603707689.jpeg', '', 'uploads/advacate/2151603707689.jpeg', NULL, NULL, NULL, NULL, NULL, NULL, '2020-10-26 11:21:29');
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,8 @@ CREATE TABLE `advocate_details` (
 --
 
 INSERT INTO `advocate_details` (`id`, `name_advocate`, `email`, `mobile_number`, `address`, `district`, `state`, `pin_code`, `practicing_place`, `specialized_practice_areas`, `known_languages`, `experience`, `enrolment_no`, `number_of_legal_cases`, `education`, `experience_if_any`, `consultation_Fee`, `cost_per_hour`, `created_date`) VALUES
-(1, 'yedukondalu', 'yedu@gmail.com', '2312312312', 'hyderabad', 'hyderabad', 'telangana', '500076', 'hyderabad', 'hyderabad', 'english,telugu', '10', 'sda', '19', 'mallb', '3', '1000', '100', '2020-10-22 12:17:42');
+(1, 'yedukondalu', 'yedu@gmail.com', '2312312312', 'hyderabad', 'hyderabad', 'telangana', '500076', 'hyderabad', 'hyderabad', 'english,telugu', '10', 'sda', '19', 'mallb', '3', '1000', '100', '2020-10-22 12:17:42'),
+(2, 'sad', 'asd@gmail.com', '2132131231', 'ash', 'krishna', 'ap', '500062', 'hyd', 'hyderabad', 'english', '10', '100', '100', 'mallb', '5', '1000', '100', '2020-10-26 11:21:29');
 
 -- --------------------------------------------------------
 
@@ -144,8 +146,13 @@ CREATE TABLE `complaint_details` (
   `mobile_number` varchar(20) NOT NULL,
   `Aadhaar_number` varchar(20) NOT NULL,
   `Address` varchar(50) NOT NULL,
+  `district` varchar(120) NOT NULL,
   `State` varchar(30) NOT NULL,
   `Postal_Pincode` varchar(10) NOT NULL,
+  `complain_types` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `product_name` varchar(50) NOT NULL,
+  `cash_receipt_no` varchar(50) NOT NULL,
   `IN_ON_TN_number` varchar(50) NOT NULL,
   `Purchase_Value` varchar(20) NOT NULL,
   `Registered_Email_Address` varchar(25) NOT NULL,
@@ -154,13 +161,53 @@ CREATE TABLE `complaint_details` (
   `Complaint_Details` varchar(20) NOT NULL,
   `Loss_value` varchar(30) NOT NULL,
   `expect_from_COMPANY` varchar(50) NOT NULL,
+  `warr_type` varchar(20) NOT NULL,
+  `when_date` date DEFAULT NULL,
   `Company_response` varchar(100) NOT NULL,
+  `upload_comm_proof` varchar(120) DEFAULT NULL,
   `Earlier_communication_with_company` varchar(100) NOT NULL,
   `Email_id` varchar(50) NOT NULL,
   `Phone_Number` varchar(20) NOT NULL,
   `Register_Address` varchar(50) NOT NULL,
-  `Interested_Parties` varchar(50) NOT NULL
+  `c_state` varchar(20) NOT NULL,
+  `c_pincode` varchar(20) NOT NULL,
+  `Interested_Parties` varchar(50) NOT NULL,
+  `created_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `complaint_details`
+--
+
+INSERT INTO `complaint_details` (`id`, `Select_Company`, `name`, `email`, `mobile_number`, `Aadhaar_number`, `Address`, `district`, `State`, `Postal_Pincode`, `complain_types`, `type`, `product_name`, `cash_receipt_no`, `IN_ON_TN_number`, `Purchase_Value`, `Registered_Email_Address`, `Registered_Mobile_Number`, `When_happen`, `Complaint_Details`, `Loss_value`, `expect_from_COMPANY`, `warr_type`, `when_date`, `Company_response`, `upload_comm_proof`, `Earlier_communication_with_company`, `Email_id`, `Phone_Number`, `Register_Address`, `c_state`, `c_pincode`, `Interested_Parties`, `created_date`) VALUES
+(1, 'asdad', 'as;lsad', 'ash@gmaill.com', '212313', '21312', '12sadsad', 'zd', 'asd', '12312', 1, 1, 'asd', '213', '123', '12', '123@gmail.com', 'sdasdad', '2020-10-25', 'das', 'as', 'asd', 'Yes', '2020-10-25', 'asd', NULL, 'asd', 'sadd', '12313123', 'sadasd', '21', '23123', 'asd', '2020-10-25 10:34:29'),
+(2, 'asdas', 'sd', 'sda@gmail.com', '2131231231', '1232', 'asdasd', 'sdas', 'as', '213213', 1, 1, 'sda', '221', 'asd222', '22', 'ssa@gmail.com', '2132132131', '2020-10-26', 'dd', '12001', 'dad', 'Yes', '2020-10-26', 'adsd', NULL, 'ass', 'ssw@fas.com', '12312', 'eqweq', 'asas', '121121', 'asd', '2020-10-26 11:34:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `complent_images`
+--
+
+CREATE TABLE `complent_images` (
+  `id` int(11) NOT NULL,
+  `upload_comm_proof` varchar(50) NOT NULL,
+  `complaint_id` int(11) NOT NULL,
+  `invoice_order_file` varchar(100) NOT NULL,
+  `aadhar_no_vote` varchar(100) NOT NULL,
+  `transaction_receipt` varchar(100) NOT NULL,
+  `foulty_wrong1` varchar(100) DEFAULT NULL,
+  `foulty_wrong2` varchar(100) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `complent_images`
+--
+
+INSERT INTO `complent_images` (`id`, `upload_comm_proof`, `complaint_id`, `invoice_order_file`, `aadhar_no_vote`, `transaction_receipt`, `foulty_wrong1`, `foulty_wrong2`, `created_date`) VALUES
+(1, './uploads/complaint/1/101603618469.jpeg', 1, './uploads/complaint/1/571603618469.jpeg', './uploads/complaint/1/591603618469.jpeg', '', NULL, NULL, '2020-10-25 10:34:29'),
+(2, 'uploads/complaint/2281603708451.jpeg', 2, 'uploads/complaint/251603708451.jpeg', '', '', NULL, NULL, '2020-10-26 11:34:11');
 
 --
 -- Indexes for dumped tables
@@ -191,6 +238,12 @@ ALTER TABLE `complaint_details`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `complent_images`
+--
+ALTER TABLE `complent_images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -198,13 +251,13 @@ ALTER TABLE `complaint_details`
 -- AUTO_INCREMENT for table `advcate_images`
 --
 ALTER TABLE `advcate_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `advocate_details`
 --
 ALTER TABLE `advocate_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `company_details`
@@ -216,7 +269,13 @@ ALTER TABLE `company_details`
 -- AUTO_INCREMENT for table `complaint_details`
 --
 ALTER TABLE `complaint_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `complent_images`
+--
+ALTER TABLE `complent_images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
