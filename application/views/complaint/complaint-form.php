@@ -35,25 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </style>
 </head>
 <body>
-<?php if($this->session->flashdata("user_success")!=""){?>
-	<div class="myAlert-top alert alert-success alert-dismissible" role="alert">
-		<button type="button" class="close" data-dismiss="alert">
-			<span aria-hidden="true">&times;</span>
-			<span class="sr-only">&times;</span>
-		</button>
-		<?php echo $this->session->flashdata("user_success");?>	<i class="fa fa-thumbs-up"></i>
-	</div>
-<?php }?>
-<?php if($this->session->flashdata("user_error")!=""){ ?>
-	<div class="myAlert-top alert alert-danger alert-dismissible" role="alert">
-		<button type="button" class="close" data-dismiss="alert">
-			<span aria-hidden="true">&times;</span>
-			<span class="sr-only">&times;</span>
-		</button>
-		<?php echo $this->session->flashdata("user_error");?> 
-		<span class="imprnt"  > <i class="fa fa-exclamation-circle"></i> </span>
-	</div>
-<?php }?>
+
 <section class="content-body">
 <div class="container">
 <div class="breadcrumbs">

@@ -18,8 +18,15 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('common_model'); 
+		$this->lang->load('english_lang','english');
+	}
 	public function index()
 	{
+		//echo label('801P');die;
 		$this->load->model('Common_model', 'common');
 		$data['companies'] = $this->common->get_conpanies();
 		$this->load->helper('url');

@@ -1,5 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+  if($complaintDetails['warr_type']== 'Yes')
+  {
+	  $hide='';
+  }	
+	else
+	{
+	$hide='d-none';	
+	}  
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,25 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </style>
 </head>
 <body>
-<?php if($this->session->flashdata("user_success")!=""){?>
-	<div class="myAlert-top alert alert-success alert-dismissible" role="alert">
-		<button type="button" class="close" data-dismiss="alert">
-			<span aria-hidden="true">&times;</span>
-			<span class="sr-only">&times;</span>
-		</button>
-		<?php echo $this->session->flashdata("user_success");?>	<i class="fa fa-thumbs-up"></i>
-	</div>
-<?php }?>
-<?php if($this->session->flashdata("user_error")!=""){ ?>
-	<div class="myAlert-top alert alert-danger alert-dismissible" role="alert">
-		<button type="button" class="close" data-dismiss="alert">
-			<span aria-hidden="true">&times;</span>
-			<span class="sr-only">&times;</span>
-		</button>
-		<?php echo $this->session->flashdata("user_error");?> 
-		<span class="imprnt"  > <i class="fa fa-exclamation-circle"></i> </span>
-	</div>
-<?php }?>
+
 <section class="content-body">
 <div class="container">
 <div class="breadcrumbs">
@@ -67,39 +57,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <h2 class="form-title">Complaint Form</h2>
 
 <section class="custom-form">
-<form method="POST" enctype='multipart/form-data' id="complaint_form">
+<form method="POST" enctype='multipart/form-data' id="complaint_form" action ="<?=base_url();?>complaint/editcomplaintDetails">
 <section class="section-1">
 <div class="form-group">
-                    <label for="">Company </label><br>
-                    <input type="text" class="form-control" id="company" placeholder="" name="company">
+			<label for="">Company </label><br>
+			<input type="text" class="form-control" id="company" placeholder="" name="company" value="<?= $complaintDetails['Select_Company'];?>">
                 </div>
 <div class="form-group">
                     <label for="">Name (As per  Aadhaar / Govt. ID ) </label><br>
-                    <input type="text" class="form-control" id="nameperaddhar" placeholder="" name="nameperaddhar">
+                    <input type="text" class="form-control" id="nameperaddhar" placeholder="" name="nameperaddhar" value="<?= $complaintDetails['name'];?>">
                 </div>
 <div class="form-group">
                     <label for="">Email Address</label><br>
-                    <input type="text" class="form-control" id="email" placeholder="" name="email">
+                    <input type="text" class="form-control" id="email" placeholder="" name="email" value="<?= $complaintDetails['email'];?>">
                 </div>
 <div class="form-group">
                     <label for="">Mobile Number</label><br>
-                    <input type="number" class="form-control" id="mobile_com" placeholder="" name="mobile_com" onKeyPress="if(this.value.length==10) return false;">
+                    <input type="number" class="form-control" id="mobile_com" placeholder="" name="mobile_com" onKeyPress="if(this.value.length==10) return false;" value="<?= $complaintDetails['mobile_number'];?>">
                 </div>
 <div class="form-group">
                     <label for="">Address</label><br>
-                    <input type="text" class="form-control" id="address" placeholder="" name="address">
+                    <input type="text" class="form-control" id="address" placeholder="" name="address" value="<?= $complaintDetails['Address'];?>">
                 </div>
 <div class="form-group">
                     <label for="">District</label><br>
-                    <input type="text" class="form-control" id="district" placeholder="" name="district">
+                    <input type="text" class="form-control" id="district" placeholder="" name="district" value="<?= $complaintDetails['district'];?>">
                 </div>
 <div class="form-group">
                     <label for="">State</label><br>
-                    <input type="text" class="form-control" id="state" placeholder="" name="state">
+                    <input type="text" class="form-control" id="state" placeholder="" name="state" value="<?= $complaintDetails['State'];?>">
                 </div>
 <div class="form-group">
                     <label for="">Pin Code</label><br>
-                    <input type="number" class="form-control" id="pincode" placeholder="" name="pincode" onKeyPress="if(this.value.length==6) return false;">
+                    <input type="number" class="form-control" id="pincode" placeholder="" name="pincode" onKeyPress="if(this.value.length==6) return false;" value="<?= $complaintDetails['Postal_Pincode'];?>">
                 </div>
 	<input type="button" class="btn custom-btn goto-step2" onClick="first()" value="Next">
 </section>
@@ -108,75 +98,75 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <label for="">Selection of  Complain type</label><br>
                     <select  class="form-control" id="complain_types" placeholder="" name="complain_types">
 					<option value="">Complain type</option>
-					<option value="1">Complain Letter</option>
-					<option value="2">Demand Draft</option>
-					<option value="3">Legal Notice</option>
+					<option value="1" <?php if($complaintDetails['complain_types']=="1") echo selected;?>>Complain Letter</option>
+					<option value="2" <?php if($complaintDetails['complain_types']=="2") echo selected;?>>Demand Draft</option>
+					<option value="3" <?php if($complaintDetails['complain_types']=="3") echo selected;?>>Legal Notice</option>
 					</select>
                 </div>
 <div class="form-group">
                     <label for="">Select type</label><br>
                     <select  class="form-control" id="type" placeholder="" name="type">
 					<option value="">Select type</option>
-					<option value="1">Product </option>
-					<option value="2">Service </option>
+					<option value="1" <?php if($complaintDetails['type']=="1") echo selected;?>>Product </option>
+					<option value="2" <?php if($complaintDetails['type']=="2") echo selected;?>>Service </option>
 					</select>
                 </div>
 <div class="form-group">
                     <label for="">Name of the Product / Service</label><br>
-                    <input type="text" class="form-control" id="product_name" placeholder="" name="product_name">
+                    <input type="text" class="form-control" id="product_name" placeholder="" name="product_name" value="<?= $complaintDetails['product_name'];?>">
                 </div>
 <div class="form-group">
                     <label for="">Cash paid receipt Number </label><br>
-                    <input type="text" class="form-control" id="cash_receipt_no" placeholder="" name="cash_receipt_no">
+                    <input type="text" class="form-control" id="cash_receipt_no" placeholder="" name="cash_receipt_no" value="<?= $complaintDetails['cash_receipt_no'];?>">
                 </div>
 <div class="form-group">
                     <label for="">Invoice Number / Order Number/ Ticket Number</label><br>
-                    <input type="text" class="form-control" id="invoice_no" placeholder="" name="invoice_no">
+                    <input type="text" class="form-control" id="invoice_no" placeholder="" name="invoice_no" value="<?= $complaintDetails['IN_ON_TN_number'];?>">
                 </div>
 <div class="form-group">
                     <label for="">Purchase Value in Rs. </label><br>
-                    <input type="number" class="form-control" id="purchase_val" placeholder="" name="purchase_val">
+                    <input type="number" class="form-control" id="purchase_val" placeholder="" name="purchase_val" value="<?= $complaintDetails['Purchase_Value'];?>">
                 </div>
 <div class="form-group">
                     <label for="">Registered email during purchase transaction with the company </label><br>
-                    <input type="text" class="form-control" id="reg_email" placeholder="" name="reg_email">
+                    <input type="text" class="form-control" id="reg_email" placeholder="" name="reg_email" value="<?= $complaintDetails['Registered_Email_Address'];?>">
                 </div>
 <div class="form-group">
                     <label for="">Registered mobile number during purchase  transaction with the company</label><br>
-                    <input type="number" class="form-control" id="reg_mobile" placeholder="" name="reg_mobile" onKeyPress="if(this.value.length==10) return false;">
+                    <input type="number" class="form-control" id="reg_mobile" placeholder="" name="reg_mobile" onKeyPress="if(this.value.length==10) return false;" value="<?= $complaintDetails['Registered_Mobile_Number'];?>">
                 </div>
 <div class="form-group">
                     <label for="">AADHAAR Number (last 4 digits only )</label><br>
-                    <input type="number" class="form-control" id="aadhar_no" placeholder="" name="aadhar_no" onKeyPress="if(this.value.length==4) return false;">
+                    <input type="number" class="form-control" id="aadhar_no" placeholder="" name="aadhar_no" onKeyPress="if(this.value.length==4) return false;" value="<?= $complaintDetails['Aadhaar_number'];?>">
                 </div>
 	<div class="form-group">
 		<label for="">When this happen (Date)</label><br>
-		<input type="date" class="form-control" id="wth" placeholder="" name="wth">
+		<input type="date" class="form-control" id="wth" placeholder="" name="wth" value="<?= $complaintDetails['When_happen'];?>">
 	</div>
 	<div class="form-group">
 		<label for="">Complaint Details / What happened? </label><br>
-		<input type="text" class="form-control" id="complaint_details" placeholder="" name="complaint_details">
+		<input type="text" class="form-control" id="complaint_details" placeholder="" name="complaint_details" value="<?= $complaintDetails['Complaint_Details'];?>">
 	</div>
 	<div class="form-group">
 		<label for="">Loss Value / how much you affected? </label><br>
-		<input type="text" class="form-control" id="loss_val" placeholder="" name="loss_val">
+		<input type="text" class="form-control" id="loss_val" placeholder="" name="loss_val" value="<?= $complaintDetails['Loss_value'];?>">
 	</div>
 	<div class="form-group">
 		<label for="">What would you expect from the Company to resolve your complaint?</label><br>
-		<input type="text" class="form-control" id="ecrc" placeholder="" name="ecrc">
+		<input type="text" class="form-control" id="ecrc" placeholder="" name="ecrc" value="<?= $complaintDetails['expect_from_COMPANY'];?>">
 	</div>
 	<div class="form-group">
 		<label for="">Have you raised this issue before Warranty / complaint period with Company?</label><br>
-		<input type="radio" id="yes" name="warr_type" value="Yes" onClick="showDate(1);"> Yes
-		<input type="radio" id="no" name="warr_type" value="No" onClick="showDate(0);"> No
+		<input type="radio" id="yes" name="warr_type" value="Yes" onClick="showDate(1);"<?php echo ($complaintDetails['warr_type']== 'Yes') ?  "checked" : "" ;  ?>> Yes
+		<input type="radio" id="no" name="warr_type" value="No" onClick="showDate(0);" <?php echo ($complaintDetails['warr_type']== 'No') ?  "checked" : "" ;  ?>> No
 	</div>
-	<div class="form-group d-none" id="whenDate">
+	<div class="form-group <?=$hide; ?>" id="whenDate">
 		<label for="">When (Date) & How (Email / Phone message)</label><br>
-		<input type="date" class="form-control" id="when_date" placeholder="" name="when_date">
+		<input type="date" class="form-control" id="when_date" placeholder="" name="when_date" value="<?= $complaintDetails['when_date'];?>">
 	</div>
 	<div class="form-group">
 		<label for="">Company response (name of people who interacted & designation)</label><br>
-		<input type="text" class="form-control" id="company_res" placeholder="" name="company_res">
+		<input type="text" class="form-control" id="company_res" placeholder="" name="company_res" value="<?= $complaintDetails['Company_response'];?>">
 	</div>
 	<div class="form-group custom-file">
 		<label class="custom-file-label" for="upload_comm_proof">Upload (Communication proof with company)   </label><br>
@@ -184,31 +174,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="form-group">
 		<label for="">Interested Parties (here add the fields)</label><br>
-		<input type="text" class="form-control" id="int_partes" placeholder="" name="int_partes">
+		<input type="text" class="form-control" id="int_partes" placeholder="" name="int_partes" value="<?= $complaintDetails['Interested_Parties'];?>">
 	</div>
 	<div class="form-group">
 		<label for="">Company name</label><br>
-		<input type="text" class="form-control" id="company_named" placeholder="" name="company_named">
+		<input type="text" class="form-control" id="company_named" placeholder="" name="company_named" value="<?= $complaintDetails['Earlier_communication_with_company'];?>">
 	</div>
 	<div class="form-group">
 		<label for="">Email id</label><br>
-		<input type="text" class="form-control" id="c_email_id" placeholder="" name="c_email_id">
+		<input type="text" class="form-control" id="c_email_id" placeholder="" name="c_email_id" value="<?= $complaintDetails['Email_id'];?>">
 	</div>
 	<div class="form-group">
 		<label for="">Phone Number</label><br>
-		<input type="number" class="form-control" id="c_phone_no" placeholder="" name="c_phone_no" onKeyPress="if(this.value.length==10) return false;">
+		<input type="number" class="form-control" id="c_phone_no" placeholder="" name="c_phone_no" onKeyPress="if(this.value.length==10) return false;" value="<?= $complaintDetails['Phone_Number'];?>">
 	</div>
 	<div class="form-group">
 		<label for="">Register Address</label><br>
-		<input type="text" class="form-control" id="c_register_address" placeholder="" name="c_register_address">
+		<input type="text" class="form-control" id="c_register_address" placeholder="" name="c_register_address" value="<?= $complaintDetails['Register_Address'];?>">
 	</div>
 	<div class="form-group">
 		<label for="">State</label><br>
-		<input type="text" class="form-control" id="c_state" placeholder="" name="c_state">
+		<input type="text" class="form-control" id="c_state" placeholder="" name="c_state" value="<?= $complaintDetails['c_state'];?>">
 	</div>
 	<div class="form-group">
 		<label for="">Pincode</label><br>
-		<input type="text" class="form-control" id="c_pincode" placeholder="" name="c_pincode" onKeyPress="if(this.value.length==6) return false;">
+		<input type="text" class="form-control" id="c_pincode" placeholder="" name="c_pincode" onKeyPress="if(this.value.length==6) return false;" value="<?= $complaintDetails['c_pincode'];?>">
 	</div>
 <p>         
        <button type="button" class="btn custom-btn goback-step1 float-left" onClick="previousSecond()">Prev</button>
@@ -336,7 +326,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<button type="button" class="btn custom-btn goback-step4 float-left" onclick="previousForth()">Prev</button>
 		</div>
 		<div class="col-md-6">
-			<button type="submit" class="btn custom-btn " onclick="saveAdvacateDetails();" >Submit</button>
+		<input type="hidden" id="compla_id" name="compla_id" value="<?=$complaintDetails['id'];?>">
+			<button type="submit" class="btn custom-btn " onclick="saveComplaintDetails();" >Submit</button>
 		</div>
 	<p></p>
 	</div>

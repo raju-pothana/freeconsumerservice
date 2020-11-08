@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Free Consumer Service &#8211; Consumer Court</title>
 	<link type="text/css" href="<?= base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
   <link type="text/css" href="<?= base_url(); ?>css/custom.css" rel="stylesheet">
+  <script src="<?php echo base_url();?>/js/common.js" ></script>
 </head>
 <body>
 <footer class="custom-footer fixed bottom">

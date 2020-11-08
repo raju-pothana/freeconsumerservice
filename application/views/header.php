@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link type="text/css" href="<?= base_url(); ?>css/custom.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   .custom-navbar li.login-otp{
     position:relative;
   }
@@ -116,13 +117,13 @@ display:block;
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto custom-navbar">
-					<li class="nav-item"><a href="howitworks">How it Works</a></li>
-					<li class="nav-item"><a href="cpact2019">CP ACT 2019</a></li>
-					<li class="nav-item"><a href="#">Customer Reviews</a></li>
-					<li class="nav-item"><a href="#">Advocates</a></li>
-          <li class="nav-item"><a href="#">Browse a Complaint</a></li>
-          <li class="nav-item"><a href="#">Raise A complaint For Free</a></li>
-          <li class="nav-item login-otp"><a href="#">Login</a>
+			<li class="nav-item"><a href="<?= base_url(); ?>howitworks">How it Works</a></li>
+			<li class="nav-item"><a href="<?= base_url(); ?>cpact2019">CP ACT 2019</a></li>
+			<li class="nav-item"><a href="#">Customer Reviews</a></li>
+			<li class="nav-item"><a href="<?= base_url(); ?>advocates">Advocates</a></li>
+            <li class="nav-item"><a href="<?= base_url(); ?>complaint">Browse a Complaint</a></li>
+            <li class="nav-item"><a href="<?= base_url(); ?>complaint">Raise A complaint For Free</a></li>
+            <li class="nav-item login-otp"><a href="#">Login</a>
           <div class="otp-container">
 		<div class="error"></div>
 		<form id="frm-mobile-verification">
@@ -141,6 +142,27 @@ display:block;
         </ul>
       </div>
     </nav>
-
+<?php if($this->session->flashdata("user_success")!=""){?>
+			<div class="myAlert-top alert alert-success alert-dismissible" role="alert" id="eemesg">
+				<button type="button" class="close" data-dismiss="alert" onclick="hideErroMsg('eemesg')">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">&times;</span>
+				</button>
+				<?php echo $this->session->flashdata("user_success");?>	<i class="fa fa-thumbs-up"></i>
+			</div>
+		<?php }?>
+		<?php if($this->session->flashdata("user_error")!=""){ ?>
+			<div class="myAlert-top alert alert-danger alert-dismissible" role="alert" id="eemesg1">
+				<button type="button" class="close" data-dismiss="alert" onclick="hideErroMsg('eemesg1')">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">&times;</span>
+				</button>
+				<?php echo $this->session->flashdata("user_error");?> 
+				<span class="imprnt"  > <i class="fa fa-exclamation-circle"></i> </span>
+			</div>
+		<?php }?>
 </body>
 </html>
+<script>
+var base_url="<?= base_url(); ?>";
+</script>
