@@ -30,7 +30,7 @@ class Advocates extends CI_Controller {
 		//echo "<pre>";print_r($data);die;
 		$this->load->helper('url');
 		$this->load->view('header');
-		$this->load->view('avocate/advacate',$data);
+		$this->load->view('avocate/adv-form',$data);
 		$this->load->view('footer');
 	}
 	public function add()

@@ -170,7 +170,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	
 	<div class="form-group custom-file">
-		<label class="custom-file-label" for="resumeFile">Education Qualification Certificates<br>
+		<label class="custom-file-label" for="resumeFile">Education Qualification Certificates 1<br>
 			(Optional)</label><br>
 		<div>
 			<input type="file" class="custom-file-input" id="eqcertificate" name="eqcertificate">

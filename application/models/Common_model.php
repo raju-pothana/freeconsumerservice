@@ -8,10 +8,16 @@ class Common_model extends CI_Model {
     }
 	public function get_advocates()
 	{
-		$sql = "select t1.*,t2.* from advocate_details as t1 left join advcate_images as t2 on (t1.id=t2.advacate_id) where t1.deleted='0' order by t1.id desc" ;
-			$exec = $this->db->query($sql);
-			$result = $exec->result_array();
-			return $result;
+		$name=$this->input->post('nameField');
+		$sql = "select t1.*,t2.* from advocate_details as t1 left join advcate_images as t2 on (t1.id=t2.advacate_id) where t1.deleted='0' ";
+		if($name !='') 
+		{ 
+			$sql.= "AND (t1.name_advocate = '".$name."') " ; 
+		}
+		$sql.=" order by t1.id desc";
+		$exec = $this->db->query($sql);
+		$result = $exec->result_array();
+		return $result;
 	}
 	
 	public function get_advocate_details($id)
