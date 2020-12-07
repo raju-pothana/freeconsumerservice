@@ -34,4 +34,24 @@ class Home extends CI_Controller {
 		$this->load->view('home-content', $data);
 		$this->load->view('footer');
 	}
+	public function get_complaint()
+	{
+		$data = $this->common_model->get_complaint();
+		
+		if (is_array($data) || is_object($data))
+    {
+        foreach ($data as $key => $value) {
+            $button = "";
+            $button .= "<a href=".base_url()."complaint/edit/".$value['id'].">Link</a>";
+            $result['data'][$key] = array(
+					"id" => $value['id'],
+                    "name"=>$value['name'],
+                    "url"=>$button
+                     );
+        }
+    }
+		
+		echo json_encode($result);
+		
+	}
 }

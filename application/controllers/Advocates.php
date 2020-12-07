@@ -21,6 +21,7 @@ class Advocates extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->helper('url');
 		$this->load->model('common_model'); 
 		$this->lang->load('english_lang','english');
 	}
@@ -28,14 +29,12 @@ class Advocates extends CI_Controller {
 	{
 		$data['advocates'] = $this->common_model->get_advocates();
 		//echo "<pre>";print_r($data);die;
-		$this->load->helper('url');
 		$this->load->view('header');
 		$this->load->view('avocate/adv-form',$data);
 		$this->load->view('footer');
 	}
 	public function add()
 	{
-		$this->load->helper('url');
 		$this->load->view('header');
 		$this->load->view('avocate/attroney-form');
 		$this->load->view('footer');
@@ -59,7 +58,6 @@ class Advocates extends CI_Controller {
 	public function edit($id)
 	{
 		$data['advocateDetails'] = $this->common_model->get_advocate_details($id);
-		$this->load->helper('url');
 		$this->load->view('header');
 		$this->load->view('avocate/edit_form',$data);
 		$this->load->view('footer');
@@ -79,5 +77,13 @@ class Advocates extends CI_Controller {
 			echo json_encode($response);
 			//redirect(base_url().'advocates');
 		}
+	}
+	public function view($id)
+	{
+		$data['advocateDetails'] = $this->common_model->get_advocate_details($id);
+		//echo "<pre>";print_r($data);die;
+		$this->load->view('header');
+		$this->load->view('avocate/viewAdvacate',$data);
+		$this->load->view('footer');
 	}
 }

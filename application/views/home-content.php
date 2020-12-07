@@ -185,10 +185,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   var table = $("#complaintinfo").DataTable({
           ajax:
             // "https://gyrocode.github.io/files/jquery-datatables/objects.json",
-            "<?= base_url(); ?>js/complaint.json",
+            "<?= base_url(); ?>Home/get_complaint",
           responsive: true,
           columns: [
-            { data: "complaint" },
+            { data: "name" },
             { data: "url" }
           ],
           order: [[1, "asc"]],

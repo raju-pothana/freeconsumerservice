@@ -15,3 +15,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </footer>
     </body>
 </html>
+<script>
+	$(document).ready(function(){
+		$(".myAlert-").show();
+		  setTimeout(function(){
+			$(".myAlert-top").hide(); 
+		}, 5000);
+	});
+</script>

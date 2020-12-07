@@ -106,7 +106,7 @@
           <div class="col">
             <label class="text-danger">Specialized practiced areas</label>
             <p><?= $advocatesList['specialized_practice_areas']; ?></p>
-            <button class="btn btn-primary text-uppercase">Contact Now</button>
+            <a href="<?=base_url();?>advocates/view/<?= $advocatesList['id'];?>"><button class="btn btn-primary text-uppercase">Contact Now</button></a>
           </div>
         </div>
 	  <?php } ?>

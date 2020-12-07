@@ -20,6 +20,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         padding-top:20px;
         padding-bottom:20px;
       }
+	  .textarea_text
+		{
+			width: 100%;margin-top: 0px;margin-bottom: 0px;height: 61px;
+		}
 	  .bd-highlight {
 			background-color: azure; 
 			border: 1px solid rgb(255, 0, 0);
@@ -49,12 +53,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <h2 class="form-title">Complaint Form</h2>
 
 <section class="custom-form">
-<form method="POST" enctype='multipart/form-data' id="complaint_form">
+<form method="POST" enctype='multipart/form-data' id="complaint_form" action="<?=base_url()?>complaint/saveComplaintDetails">
 <section class="section-1">
-<div class="form-group">
-                    <label for="">Company </label><br>
-                    <input type="text" class="form-control" id="company" placeholder="" name="company">
-                </div>
+	<div class="form-group">
+		<label for="">Company </label><br>
+		<input type="text" class="form-control" id="company" placeholder="" name="company">
+	</div>
 <div class="form-group">
                     <label for="">Name (As per  Aadhaar / Govt. ID ) </label><br>
                     <input type="text" class="form-control" id="nameperaddhar" placeholder="" name="nameperaddhar">
@@ -106,6 +110,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="form-group">
                     <label for="">Name of the Product / Service</label><br>
                     <input type="text" class="form-control" id="product_name" placeholder="" name="product_name">
+                </div>
+				<div class="form-group">
+                    <label for="">Title of the complaint (180 words)</label><br>
+                    <textarea rows="3" class="textarea_text" id="title" placeholder="" name="title" ></textarea>
                 </div>
 <div class="form-group">
                     <label for="">Cash paid receipt Number </label><br>
@@ -218,6 +226,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<label class="custom-file-label" for="resumeFile">Faulty / Wrong Product photo 2</label><br>
 		<input type="file" class="custom-file-input" id="foulty_wrong2" name="foulty_wrong2">
 	</div>
+	<div class="form-group custom-file">
+		<label class="custom-file-label" for="resumeFile">Youtube Video (optional)</label><br>
+		<input type="file" class="custom-file-input" id="youtube_video" name="youtube_video">
+	</div>
+
 		
 <div class="row w-100p">
 	<div class="col-md-6">
@@ -318,7 +331,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<button type="button" class="btn custom-btn goback-step4 float-left" onclick="previousForth()">Prev</button>
 		</div>
 		<div class="col-md-6">
-			<button type="submit" class="btn custom-btn " onclick="saveAdvacateDetails();" >Submit</button>
+			<button type="button" class="btn custom-btn " onclick="saveComDetails();" >Submit</button>
 		</div>
 	<p></p>
 	</div>
@@ -329,4 +342,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 </body>
 </html>
-<script src="<?php echo base_url();?>/js/cust_comlpaint/complaint.js" ></script>
+<script src="<?php echo base_url();?>js/cust_comlpaint/complaint.js" ></script>

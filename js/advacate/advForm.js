@@ -45,12 +45,12 @@ function first(){
 			$("#nearestcity").focus();
 			return false;
 		 }
-		 var about_u=$('#about_u').val();
+		 /*var about_u=$('#about_u').val();
 		 if(about_u=='' || about_u===null || typeof(about_u)  === "undefined")
 		 {
 			$("#about_u").focus();
 			return false;
-		 }
+		 }*/
 		 $(".section-1,.section-3.section-4").addClass("d-none"); $(".section-2").removeClass("d-none"); $(".step1,.step3,.step4").removeClass('active'); $(".step2").addClass('active');
 }
 function second(){
@@ -60,12 +60,12 @@ function second(){
 			$("#practicing").focus();
 			return false;
 		 } 
-		 var practicearea=$('#practicearea').val();
+		 /*var practicearea=$('#practicearea').val();
 		 if(practicearea=='' || practicearea===null || typeof(practicearea)  === "undefined")
 		 {
 			$("#practicearea").focus();
 			return false;
-		 }
+		 }*/
 		 var languages=$('#languages').val();
 		 if(languages=='' || languages===null || typeof(languages)  === "undefined")
 		 {
@@ -83,13 +83,13 @@ function second(){
 			$("#enrolmentnumber").focus();
 			return false;
 		 } 
-		 var noofleagalcases=$('#noofleagalcases').val();
+		 /*var noofleagalcases=$('#noofleagalcases').val();
 		 if(noofleagalcases=='' || noofleagalcases===null || typeof(noofleagalcases)  === "undefined")
 		 {
 			$("#noofleagalcases").focus();
 			return false;
-		 }
-		 var education=$('#education').val();
+		 }*/
+		 /*var education=$('#education').val();
 		 if(education=='' || education===null || typeof(education)  === "undefined")
 		 {
 			$("#education").focus();
@@ -106,7 +106,7 @@ function second(){
 		 {
 			$("#experience").focus();
 			return false;
-		 }
+		 }*/
 		 var consultationfee=$('#consultationfee').val();
 		 if(consultationfee=='' || consultationfee===null || typeof(consultationfee)  === "undefined")
 		 {

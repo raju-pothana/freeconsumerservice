@@ -16,6 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       crossorigin="anonymous"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//www.html.am/html-editors/ckeditor/ckeditor_3.4/ckeditor.js"></script>
 	<style>
 		input[type=text].rupee {
 			background-image: url(http://i.imgur.com/Fd7NROx.png);
@@ -63,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 <h2 class="form-title">Attroney1</h2>
 <section class="custom-form">
-<form method="POST" enctype='multipart/form-data' id="advacate_form">
+<form method="POST" enctype='multipart/form-data' id="advacate_form" action="<?=base_url()?>advocates/saveAdvacateDetails">
 <section class="section-1">
 	<div class="form-group">
 		<label for="">Name of the Advocate (with capital letters)</label><br>
@@ -247,6 +248,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<label for="">Pin Code : <span id="viewPincode"></span></label>
 	</div>
 	<div class="form-group">
+		<label for="">Nearest City : <span id="viewNearest"></span></label>
+	</div>
+	<div class="form-group">
+		<label for="">About You : <span id="viewAbout"></span></label>
+	</div>
+	<div class="form-group">
 		<label for="">Place of Practicing : <span id="viewPlapracticing"></span></label>
 	</div>
 	<div class="form-group">
@@ -324,4 +331,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </body>
 </html>
 <script src="<?php echo base_url();?>/js/advacate/advForm.js" ></script>
+<script>
+	CKEDITOR.replace('about_u', {
+		scayt_autoStartup: true,
+		disableNativeSpellChecker: false
+    });
+	CKEDITOR.replace('education', {
+		scayt_autoStartup: true,
+		disableNativeSpellChecker: false
+    });
+	CKEDITOR.replace('practicearea', {
+		scayt_autoStartup: true,
+		disableNativeSpellChecker: false
+    });
+	CKEDITOR.replace('noofleagalcases', {
+		scayt_autoStartup: true,
+		disableNativeSpellChecker: false
+    });
+	CKEDITOR.replace('experience', {
+		scayt_autoStartup: true,
+		disableNativeSpellChecker: false
+    });
+</script>
 
