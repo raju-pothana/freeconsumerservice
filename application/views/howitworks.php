@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
-   <h3 class="text-center mt-5">How it works</h3>
+<h3 class="text-center mt-5">How it works</h3>
    <section class="container">
    <div class="row my-5">
    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
